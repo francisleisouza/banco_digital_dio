@@ -13,7 +13,7 @@ Desenvolvimento de um Pequeno Banco Digital utilizando Spring Boot com Bando dad
 🛑 Modelagem Conceitual
 </h2>
 
-<img src="https://github.com/Francis-Souza/banco_digital/blob/master/img/mc_banco_digital.png"/>
+<img src="https://github.com/francisleisouza/banco_digital_dio/blob/master/img/mc_banco_digital.png"/>
 
 <br><br><br>
 
