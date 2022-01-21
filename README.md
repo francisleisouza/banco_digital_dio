@@ -21,6 +21,7 @@ Durante a sessão, serão desenvolvidos e abordados os seguintes tópicos:
 
 * Uso da Spring Boot e suas dependências<br>
  🔸 Dev Tools<br>
+ 🔸 JPA<br>
  🔸 H2<br>
  🔸 Swagger<br>
  🔸 Lombok<br>
