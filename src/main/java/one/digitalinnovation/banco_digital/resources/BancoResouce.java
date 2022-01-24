@@ -42,7 +42,7 @@ public class BancoResouce {
 		return ResponseEntity.ok().body(obj);
 	}
 
-	@PostMapping
+	@PostMapping("/new")
 	public ResponseEntity<Banco> insert(@RequestBody Banco obj) {
 		obj = bancoService.insert(obj);
 		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
