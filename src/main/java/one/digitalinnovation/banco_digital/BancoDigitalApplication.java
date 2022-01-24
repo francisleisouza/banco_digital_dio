@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BancoDigitalApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BancoDigitalApplication.class, args);
+		SpringApplication.run(BancoDigitalApplication.class, args);		
+	
+		
 	}
 
 }
