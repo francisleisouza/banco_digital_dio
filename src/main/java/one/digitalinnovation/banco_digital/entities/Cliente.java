@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
@@ -17,100 +15,85 @@ import javax.validation.constraints.NotNull;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "tb_agencia")
-public class Agencia implements Serializable {
-
+@Table(name = "tb_cliente")
+public class Cliente  implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotNull	
-	private Integer numeroAgencia;
+	@NotNull
+	private String cpf;
 	
 	@NotNull
 	private String nome;
 	
-	@ManyToOne
-	@JoinColumn(name = "banco_id")
-	private Banco banco;
+	@NotNull
+	private Double rendamensal;
 	
-	
-	@JsonIgnore
-	@OneToMany(mappedBy = "agencia")
+	@JsonIgnore	
+	@OneToMany(mappedBy = "cliente")
 	private List<Conta> contas = new ArrayList<>();
 
 
-	public Agencia() {
-		
+	public Cliente() {		
 	}
 
-
-	public Agencia(Long id, Integer numeroAgencia, String nome, Banco banco) {
+	public Cliente(Long id, String cpf, String nome, Double rendamensal ) {
 		super();
 		this.id = id;
-		this.numeroAgencia = numeroAgencia;
+		this.cpf = cpf;
 		this.nome = nome;
-		this.banco = banco;
-	}
-
+		this.rendamensal = rendamensal;
+		}
 
 	public Long getId() {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}
 
-
-	public Integer getNumeroAgencia() {
-		return numeroAgencia;
+	public String getCpf() {
+		return cpf;
 	}
 
-
-	public void setNumeroAgencia(Integer numeroAgencia) {
-		this.numeroAgencia = numeroAgencia;
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
-
 
 	public String getNome() {
 		return nome;
 	}
 
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-	public Banco getBanco() {
-		return banco;
+
+	public Double getRendamensal() {
+		return rendamensal;
 	}
 
-
-	public void setBanco(Banco banco) {
-		this.banco = banco;
+	public void setRendamensal(Double rendamensal) {
+		this.rendamensal = rendamensal;
 	}
 	
-	
-
 	public List<Conta> getContas() {
 		return contas;
 	}
-
-
-
+	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((cpf == null) ? 0 : cpf.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		return result;
 	}
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -120,7 +103,12 @@ public class Agencia implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Agencia other = (Agencia) obj;
+		Cliente other = (Cliente) obj;
+		if (cpf == null) {
+			if (other.cpf != null)
+				return false;
+		} else if (!cpf.equals(other.cpf))
+			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -129,10 +117,9 @@ public class Agencia implements Serializable {
 		return true;
 	}
 
-
 	@Override
 	public String toString() {
-		return "Agencia [id=" + id + ", numeroAgencia=" + numeroAgencia + ", nome=" + nome + "]";
+		return "Cliente [id=" + id + ", cpf=" + cpf + ", nome=" + nome + ", rendamensal=" + rendamensal + "]";
 	}
 	
 }
