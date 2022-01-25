@@ -47,9 +47,9 @@ public class BancoService {
 
 	public Banco update(Long id, Banco obj) {
 		try {
-			Banco categoria = bancoRepository.getById(id);
-			updateData(categoria, obj);
-			return bancoRepository.save(categoria);
+			Banco banco = bancoRepository.getById(id);
+			updateData(banco, obj);
+			return bancoRepository.save(banco);
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException(id);
 		}

@@ -48,9 +48,9 @@ public class AgenciaService {
 
 	public Agencia update(Long id, Agencia obj) {
 		try {
-			Agencia categoria = agenciaRepository.getById(id);
-			updateData(categoria, obj);
-			return agenciaRepository.save(categoria);
+			Agencia agencia = agenciaRepository.getById(id);
+			updateData(agencia, obj);
+			return agenciaRepository.save(agencia);
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException(id);
 		}

@@ -48,9 +48,9 @@ public class ClienteService {
 
 	public Cliente update(Long id, Cliente obj) {
 		try {
-			Cliente categoria = clienteRepository.getById(id);
-			updateData(categoria, obj);
-			return clienteRepository.save(categoria);
+			Cliente cliente = clienteRepository.getById(id);
+			updateData(cliente, obj);
+			return clienteRepository.save(cliente);
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException(id);
 		}
