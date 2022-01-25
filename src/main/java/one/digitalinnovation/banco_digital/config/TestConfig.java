@@ -59,9 +59,7 @@ public class TestConfig implements CommandLineRunner {
 		Conta conta1 = new Conta(null, 5858, TipoContaEnum.CONTACORRENTE, 1000.00, ag1,cli1);
 		Conta conta2 = new Conta(null, 5859, TipoContaEnum.CONTAPOUPANÇA, 1500.00, ag2, cli2);			
 
-		contaRepository.saveAll(Arrays.asList(conta1, conta2));
-
-		
+		contaRepository.saveAll(Arrays.asList(conta1, conta2));		
 		
 		
 		conta1.depositar(1550.80);			
