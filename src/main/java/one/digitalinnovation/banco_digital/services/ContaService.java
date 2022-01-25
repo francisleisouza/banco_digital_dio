@@ -48,16 +48,16 @@ public class ContaService {
 
 	public Conta update(Long id, Conta obj) {
 		try {
-			Conta categoria = contaRepository.getById(id);
-			updateData(categoria, obj);
-			return contaRepository.save(categoria);
+			Conta conta = contaRepository.getById(id);
+			updateData(conta, obj);
+			return contaRepository.save(conta);
 		} catch (EntityNotFoundException e) {
 			throw new ResourceNotFoundException(id);
 		}
 	}
 
 	public void updateData(Conta conta, Conta obj) {
-		conta.setSaldoInicial(obj.getSaldoInicial());		
-	}
+		conta.setCliente(obj.getCliente());
+	}	
 
 }

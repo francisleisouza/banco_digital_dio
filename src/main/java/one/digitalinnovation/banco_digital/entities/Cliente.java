@@ -81,6 +81,7 @@ public class Cliente  implements Serializable {
 		this.rendamensal = rendamensal;
 	}
 	
+	@JsonIgnore
 	public List<Conta> getContas() {
 		return contas;
 	}

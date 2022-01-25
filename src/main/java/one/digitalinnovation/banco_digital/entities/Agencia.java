@@ -92,16 +92,12 @@ public class Agencia implements Serializable {
 
 	public void setBanco(Banco banco) {
 		this.banco = banco;
-	}
+	}	
 	
-	
-
+	@JsonIgnore
 	public List<Conta> getContas() {
 		return contas;
 	}
-
-
-
 
 	@Override
 	public int hashCode() {
