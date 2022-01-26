@@ -110,10 +110,5 @@ public class ContaService implements ContaRepositoryImpl {
 		deposito(idContaDestino, valor);
 	}
 
-	@Override
-	public void imprimiExtrato() {
-		// TODO Auto-generated method stub
-
-	}
 
 }
