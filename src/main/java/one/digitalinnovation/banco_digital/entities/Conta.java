@@ -14,14 +14,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 import one.digitalinnovation.banco_digital.entities.enums.TipoContaEnum;
-import one.digitalinnovation.banco_digital.repositories.ContaRepositoryImpl;
 
 
 
 
 @Entity
 @Table(name = "tb_conta")
-public class Conta implements Serializable, ContaRepositoryImpl {
+public class Conta implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 
@@ -162,27 +161,27 @@ public class Conta implements Serializable, ContaRepositoryImpl {
 	
 
 
-	@Override
+	
 	public void depositar(double valor) {
 		saldo += valor;		
 	}
 
 
-	@Override
+
 	public void sacar(double valor) {
 		saldo -= valor;	
 		
 	}
 
 
-	@Override
+
 	public void transferir(Conta contaDestino, Double valor) {
 		this.sacar(valor);
 		contaDestino.depositar(valor);		
 	}
 
 
-	@Override
+
 	public void imprimiExtrato() {
 		imprimirInfosComuns();
 		

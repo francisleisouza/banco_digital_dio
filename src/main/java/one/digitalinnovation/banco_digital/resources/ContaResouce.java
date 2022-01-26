@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -53,13 +54,27 @@ public class ContaResouce {
 		return ResponseEntity.noContent().build();
 	}
 
-//	@PutMapping(value = "/{id}")
-//	public ResponseEntity<Conta> update(@PathVariable Long id, @RequestBody Conta obj) {
-//		obj = contaService.update(id, obj);
-//		URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(obj.getId()).toUri();
-//		return ResponseEntity.created(uri).body(obj);
-//
-//	}
+	
+	@PutMapping(value = "/depositar/{id}")
+	public ResponseEntity<Conta> depositar(@PathVariable Long id, Double valor, @RequestBody Conta obj) {
+		obj = contaService.deposito(id, valor);		
+		return ResponseEntity.ok().body(obj);
+
+	}
+	
+	@PutMapping(value = "/sacar/{id}")
+	public ResponseEntity<Conta> sacar(@PathVariable Long id, Double valor, @RequestBody Conta obj) {
+		obj = contaService.saque(id, valor);		
+		return ResponseEntity.ok().body(obj);
+
+	}
+	
+	@PutMapping(value = "/transferir/{id}")
+	public ResponseEntity<Conta> transferir(@PathVariable Long id, Double valor, Long idContaDestino, @RequestBody Conta obj) {
+		obj = contaService.transferenciaEntreContas(id, valor, idContaDestino);		
+		return ResponseEntity.ok().body(obj);
+
+	}
 
 
 }

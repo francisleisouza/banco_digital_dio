@@ -11,11 +11,12 @@ import org.springframework.stereotype.Service;
 
 import one.digitalinnovation.banco_digital.entities.Conta;
 import one.digitalinnovation.banco_digital.repositories.ContaRepository;
+import one.digitalinnovation.banco_digital.repositories.ContaRepositoryImpl;
 import one.digitalinnovation.banco_digital.resources.exceptions.ResourceNotFoundException;
 import one.digitalinnovation.banco_digital.services.exceptions.ObjectNotFoundException;
 
 @Service
-public class ContaService {
+public class ContaService implements ContaRepositoryImpl {
 
 	@Autowired
 	ContaRepository contaRepository;
@@ -58,6 +59,61 @@ public class ContaService {
 
 	public void updateData(Conta conta, Conta obj) {
 		conta.setCliente(obj.getCliente());
-	}	
+	}
+
+	public Conta deposito(Long id, double valor) {
+		try {
+			Conta conta = contaRepository.getById(id);
+			depositar(id, valor);
+			return contaRepository.save(conta);
+		} catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+		}
+	}
+
+	public void depositar(Long id, Double valor) {
+		Optional<Conta> conta = contaRepository.findById(id);
+		conta.get().setSaldo(conta.get().getSaldo() + valor);
+	}
+
+	public Conta saque(Long id, double valor) {
+		try {
+			Conta conta = contaRepository.getById(id);
+			sacar(id, valor);
+			return contaRepository.save(conta);
+		} catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+		}
+	}
+
+	public void sacar(Long id, Double valor) {
+		Optional<Conta> conta = contaRepository.findById(id);		
+		if (conta.get().getSaldo() >= valor ) {
+			conta.get().setSaldo(conta.get().getSaldo() - valor);			
+		} else {		
+			System.out.println("Saldo insuficiente para o saque.");
+		}
+	}
+
+	public Conta transferenciaEntreContas(Long idContaOrigem, double valor, Long idContaDestino) {
+		try {
+			Conta conta = contaRepository.getById(idContaOrigem);
+			transferir(idContaOrigem, valor, idContaDestino);
+			return contaRepository.save(conta);
+		} catch (EntityNotFoundException e) {
+			throw new ResourceNotFoundException(idContaOrigem);
+		}
+	}
+
+	public void transferir(Long idContaOrigem, Double valor, Long idContaDestino) {
+		sacar(idContaOrigem, valor);
+		deposito(idContaDestino, valor);
+	}
+
+	@Override
+	public void imprimiExtrato() {
+		// TODO Auto-generated method stub
+
+	}
 
 }
