@@ -53,6 +53,9 @@ Durante a sessão, serão desenvolvidos e abordados os seguintes tópicos:
 🔹http://localhost:8080/agencia --> id e new <br>
 🔹http://localhost:8080/cliente --> id e new <br>
 🔹http://localhost:8080/conta --> id e new  <br>
+ 🔹http://localhost:8080/conta/transferir --> idOrigem, valor, idDestino <br>
+ 🔹http://localhost:8080/conta/depositar --> id <br>
+ 🔹http://localhost:8080/conta/sacar --> id <br>
 
 </p>
 
