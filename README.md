@@ -20,12 +20,18 @@ Desenvolvimento de um Pequeno Banco Digital utilizando Spring Boot com Bando dad
 Durante a sessão, serão desenvolvidos e abordados os seguintes tópicos:
 
 * Uso da Spring Boot e suas dependências<br>
- 🔸 Dev Tools<br>
- 🔸 JPA<br>
- 🔸 H2<br>
- 🔸 Swagger<br>
- 🔸 Lombok<br>
- 🔸 Web Start<br><br>
+
+
+ ```shell script
+ 
+ 🔸 Dev Tools
+ 🔸 JPA
+ 🔸 H2
+ 🔸 Swagger
+ 🔸 Lombok
+ 🔸 Web Start
+ 
+ ```
  
  * Criação de modelo de dados para o mapeamento de entidades em bancos de dados <br>
  * Desenvolvimento de operações como depositar, sacar e transferir saldo entre contas bancárias cadastradas.<br>
@@ -33,40 +39,46 @@ Durante a sessão, serão desenvolvidos e abordados os seguintes tópicos:
 <h2>
 🛑 Pré-requistos
 </h2>
-
+ 
 * São necessários os seguintes pré-requisitos para a execução do projeto desenvolvido:
-<p>
-🔹Java 11 ou versões superiores.<br>
-🔹Eclipse com plugin com Plugn do Spring Boot.<br>
-🔹Controle de versão Git instalado na sua máquina.<br>
-🔹Conta no GitHub para o armazenamento do seu projeto na nuvem.<br>
 
-</p>
+ ```
+ 
+🔹Java 11 ou versões superiores.
+🔹Eclipse com plugin com Plugn do Spring Boot.
+🔹Controle de versão Git instalado na sua máquina.
+🔹Conta no GitHub para o armazenamento do seu projeto na nuvem.
+
+```
 
 <h2>
-🛑 Endpoints CRUD para excução do projeto.
+🛑 Endpoints CRUD para excução do projeto
 </h2>
 
-* Endpoints para Inclusão, Alteração, Exclusão e Listagem:
-<p>
-🔹http://localhost:8080/banco --> id e new <br>
-🔹http://localhost:8080/agencia --> id e new <br>
-🔹http://localhost:8080/cliente --> id e new <br>
-🔹http://localhost:8080/conta --> id e new  <br>
- 🔹http://localhost:8080/conta/transferir --> idOrigem, valor, idDestino <br>
- 🔹http://localhost:8080/conta/depositar --> id <br>
- 🔹http://localhost:8080/conta/sacar --> id <br>
 
-</p>
+* Endpoints para Inclusão, Alteração, Exclusão e Listagem:
+ 
+ ```
+ 🔹http://localhost:8080/banco --> id e new 
+ 🔹http://localhost:8080/agencia --> id e new
+ 🔹http://localhost:8080/cliente --> id e new
+ 🔹http://localhost:8080/conta --> id e new
+ 🔹http://localhost:8080/conta/transferir --> idOrigem, valor, idDestino
+ 🔹http://localhost:8080/conta/depositar --> id
+ 🔹http://localhost:8080/conta/sacar --> id
+```
+
 
 <h2>
-🛑 Endpoint para Swagger.
+🛑 Endpoint para Swagger
 </h2>
 
 * O Swagger é uma especificação aberta para definição de APIs REST, auxiliando a descrição, consumo e visualização de serviços de uma API REST
-<p>
-🔹http://localhost:8080/swagger-ui.html <br>
-</p><br>
+
+```
+🔹http://localhost:8080/swagger-ui.html
+```
+
 
 Abaixo, seguem links bem bacanas, sobre tópicos mencionados:
 
