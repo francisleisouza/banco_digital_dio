@@ -21,7 +21,7 @@ import one.digitalinnovation.banco_digital.services.BancoService;
 
 
 @RestController
-@RequestMapping("/banco")
+@RequestMapping("/bancos")
 public class BancoResouce {
 	
 	

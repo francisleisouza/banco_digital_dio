@@ -21,7 +21,7 @@ import one.digitalinnovation.banco_digital.services.ContaService;
 
 
 @RestController
-@RequestMapping("/conta")
+@RequestMapping("/contas")
 public class ContaResouce {
 	
 	
